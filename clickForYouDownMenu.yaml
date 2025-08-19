@@ -1,0 +1,6 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+
+- tapOn: FOR_YOU

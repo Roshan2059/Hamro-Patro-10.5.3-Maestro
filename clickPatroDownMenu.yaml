@@ -1,0 +1,7 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+- tapOn: CALENDAR
+
+- assertVisible: आज

@@ -1,0 +1,17 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+
+- extendedWaitUntil:
+    visible: 'पात्रो'
+    timeout: 15000
+
+- tapOn:
+    point: '10%,7%' # quotes are safer for coordinates
+
+- tapOn:
+    id: sheet-close-btn
+# - extendedWaitUntil:
+#     visible: 'पात्रो'
+#     timeout: 25000

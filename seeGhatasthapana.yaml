@@ -1,0 +1,17 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+
+- tapOn: पात्रो # Tap on the "पात्रो" button
+
+- tapOn:
+    point: 93%, 17%
+
+- scrollUntilVisible:
+    element:
+      text: 'सोम ६ असोज असोज शुक्ल प्रतिपदा घटस्थापना व्रत नवरात्र आरम्भ ३४ दिन पछि' # Scroll until this text is visible
+    direction: DOWN # Scroll down
+    timeout: 30000 # 20 seconds timeout
+
+- evalScript: console.log("✅ Test successful")
