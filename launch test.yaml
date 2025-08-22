@@ -2,15 +2,14 @@ appId: com.hamropatro
 ---
 - launchApp:
     clearState: false
-
-- extendedWaitUntil:
-    visible: 'View More'
-    timeout: 15000
-- scrollUntilVisible:
-    element:
-      text: 'View More'
-    direction: DOWN
-- tapOn: 'View More'
-- scrollUntilVisible:
-    element:
-      text: ताजा समाचार
+# - extendedWaitUntil:
+#     visible: 'View More'
+#     timeout: 15000
+# - scrollUntilVisible:
+#     element:
+#       text: 'View More'
+#     direction: DOWN
+# - tapOn: 'View More'
+# - scrollUntilVisible:
+#     element:
+#       text: ताजा समाचार

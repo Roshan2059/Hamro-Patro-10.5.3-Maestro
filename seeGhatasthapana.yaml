@@ -10,8 +10,17 @@ appId: com.hamropatro
 
 - scrollUntilVisible:
     element:
-      text: 'सोम ६ असोज असोज शुक्ल प्रतिपदा घटस्थापना व्रत नवरात्र आरम्भ ३४ दिन पछि' # Scroll until this text is visible
+      text: 'सोम ६ असोज असोज शुक्ल प्रतिपदा घटस्थापना व्रत नवरात्र आरम्भ ३३ दिन पछि' # Scroll until this text is visible(Be careful on this:--> ३४ दिन पछि)
     direction: DOWN # Scroll down
-    timeout: 30000 # 20 seconds timeout
+    timeout: 20000 # 20 seconds timeout
 
 - evalScript: console.log("✅ Test successful")
+# # - addMedia:
+# #     - ./assets/image.png
+# #     - ./assets/video.mp4
+# # - assertNoDefectsWithAI
+# - toggleAirplaneMode
+
+# - back
+
+# - toggleAirplaneMode

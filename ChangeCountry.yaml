@@ -1,0 +1,14 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: true
+
+- tapOn: SKIP
+
+- scrollUntilVisible:
+    element:
+      id: CALENDAR
+    direction: DOWN
+    timeout: 10000
+
+- tapOn: समाचार

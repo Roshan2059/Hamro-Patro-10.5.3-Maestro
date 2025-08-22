@@ -1,0 +1,23 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: true
+
+- tapOn: SKIP
+
+- tapOn:
+    point: 92%,10% #yo chai change huna sakxa
+
+- tapOn: लग इन गर्नुहोस्
+
+- tapOn: Sign in with Google
+
+- tapOn: roshan.panta.it@gmail.com #yo chai change garnuhola hai
+
+- tapOn: Continue
+
+- tapOn:
+    point: 92%,10%
+
+- tapOn:
+    point: 50%,44%

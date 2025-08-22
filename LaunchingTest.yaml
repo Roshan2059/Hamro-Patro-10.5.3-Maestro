@@ -1,0 +1,9 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: true
+
+- tapOn: SKIP
+
+- tapOn:
+    point: 1009, 266
