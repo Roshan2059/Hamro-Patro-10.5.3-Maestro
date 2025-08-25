@@ -1,0 +1,40 @@
+
+name: Maestro Daily Tests
+
+on:
+  schedule:
+    # Runs at 03:45 UTC = 09:30 NPT (Nepal Time), Monday–Friday
+    - cron: "45 2 * * 1-5"
+  workflow_dispatch:  # allows manual run from Actions tab
+
+jobs:
+  run-maestro-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java (required for Maestro)
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Verify Maestro installation
+        run: maestro --version
+
+      # Run all Maestro test files in the repo
+      - name: Run Maestro tests
+        run: maestro test . --format junit --output results.xml
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: maestro-test-results
+          path: results.xml
