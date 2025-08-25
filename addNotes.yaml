@@ -1,0 +1,35 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+
+# - tapOn: SKIP
+
+# - tapOn:
+#     point: 93%,7% #yo chai change huna sakxa
+
+# - tapOn: लग इन गर्नुहोस्
+
+# - tapOn: Sign in with Google
+
+# - tapOn: roshan.panta.it@gmail.com #yo chai change garnuhola hai
+
+# - tapOn: Continue
+
+- tapOn: नोट्स राख्नुहोस्
+
+- tapOn: शीर्षक
+
+- inputText: Dar Party
+
+- tapOn: विवरण
+
+- inputText: Aja ta hami sabai dd baini milera dar party garnu parxa..
+
+- tapOn: Save
+
+- tapOn: नोटस्
+
+- assertVisible:
+    text: Dar Party Aja ta hami sabai dd baini milera dar party garnu parxa.. सोम, भदौ ९, २०८२ (आज)
+    index: 1

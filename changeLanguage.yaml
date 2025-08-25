@@ -6,7 +6,7 @@ appId: com.hamropatro
 - tapOn: SKIP
 
 - tapOn:
-    point: 92%,10% #yo chai change huna sakxa
+    point: 92%, 7% #yo chai change huna sakxa
 
 # - assertVisible: प्रोफाइल
 
@@ -19,14 +19,14 @@ appId: com.hamropatro
 - tapOn: Continue
 
 - tapOn:
-    point: 92%,10%
+    point: 92%,7%
 
 # - assertVisible: भाषा
 
 # - tapOn: भाषा
 
 - tapOn:
-    point: 50%, 50%
+    point: 50%, 45%
 
 - tapOn: English
 

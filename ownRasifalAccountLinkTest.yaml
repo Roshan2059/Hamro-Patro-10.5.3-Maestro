@@ -1,0 +1,28 @@
+appId: com.hamropatro
+---
+- launchApp:
+    clearState: false
+
+- scrollUntilVisible:
+    element:
+      text: आजको राशिफल
+    direction: DOWN
+    timeout: 50000
+    speed: 40
+    centerElement: true
+
+- tapOn:
+    point: 10%,70%
+
+- tapOn: सिंह मा, मि, मु, मे, मो, टा, टि, टु, टे
+
+- tapOn:
+    id: sheet-close-btn
+
+- scrollUntilVisible:
+    element:
+      text: सिंह मा, मि, मु, मे, मो, टा, टि, टु, टे
+    direction: DOWN
+    timeout: 3000
+
+- assertVisible: सिंह मा, मि, मु, मे, मो, टा, टि, टु, टे

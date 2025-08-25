@@ -5,10 +5,15 @@ appId: com.hamropatro
 
 - tapOn: SKIP
 
+# - tapOn:
+#     point: 60%,70%
+
 - scrollUntilVisible:
     element:
-      id: CALENDAR
+      text: Call Now
     direction: DOWN
-    timeout: 10000
+    timeout: 40000
 
-- tapOn: समाचार
+- tapOn: Call Now
+
+- assertVisible: टिकट किन्नुहोस्
