@@ -2,7 +2,7 @@ name: Maestro Daily Tests (Hamro Patro)
 
 on:
   schedule:
-    - cron: "45 2 * * 1-5"  # 02:45 UTC = 08:30 NPT (Mon–Fri)
+    - cron: "45 2 * * 1-5"  # 08:30 NPT Mon-Fri
   workflow_dispatch:
 
 jobs:
@@ -32,9 +32,14 @@ jobs:
           target: google_apis
           arch: x86_64
           script: |
+            # Install Maestro
             curl -Ls "https://get.maestro.mobile.dev" | bash
-            echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+            export PATH="$PATH:$HOME/.maestro/bin"
+
+            # Verify installation
             maestro --version
+
+            # Run tests
             maestro test . --format junit --output results.xml
 
       - name: Upload test results
