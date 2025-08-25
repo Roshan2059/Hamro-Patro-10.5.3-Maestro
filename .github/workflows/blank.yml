@@ -1,11 +1,10 @@
-
 name: Maestro Daily Tests
 
 on:
   schedule:
     # Runs at 03:45 UTC = 09:30 NPT (Nepal Time), Monday–Friday
     - cron: "45 2 * * 1-5"
-  workflow_dispatch:  # allows manual run from Actions tab
+  workflow_dispatch: # allows manual run from Actions tab
 
 jobs:
   run-maestro-tests:
@@ -18,8 +17,8 @@ jobs:
       - name: Set up Java (required for Maestro)
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: "17"
+          distribution: "temurin"
 
       - name: Install Maestro
         run: |
@@ -34,7 +33,7 @@ jobs:
         run: maestro test . --format junit --output results.xml
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: maestro-test-results
           path: results.xml
