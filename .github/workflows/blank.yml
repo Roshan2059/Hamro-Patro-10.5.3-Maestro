@@ -1,10 +1,9 @@
-name: Maestro Daily Tests
+name: Maestro Daily Tests (Hamro Patro)
 
 on:
   schedule:
-    # Runs at 03:45 UTC = 09:30 NPT (Nepal Time), Monday–Friday
-    - cron: "45 2 * * 1-5"
-  workflow_dispatch: # allows manual run from Actions tab
+    - cron: "45 2 * * 1-5"  # 02:45 UTC = 08:30 NPT (Mon–Fri)
+  workflow_dispatch:
 
 jobs:
   run-maestro-tests:
@@ -14,23 +13,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Java (required for Maestro)
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: "17"
-          distribution: "temurin"
+          java-version: '17'
+          distribution: 'temurin'
 
-      - name: Install Maestro
+      - name: Enable KVM for Emulator
         run: |
-          curl -Ls "https://get.maestro.mobile.dev" | bash
-          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
 
-      - name: Verify Maestro installation
-        run: maestro --version
-
-      # Run all Maestro test files in the repo
-      - name: Run Maestro tests
-        run: maestro test . --format junit --output results.xml
+      - name: Run Android Emulator & Maestro Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: google_apis
+          arch: x86_64
+          script: |
+            curl -Ls "https://get.maestro.mobile.dev" | bash
+            echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+            maestro --version
+            maestro test . --format junit --output results.xml
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
